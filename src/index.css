@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, serif;
+  
+  --color-gold: #C9A96E;
+  --color-gold-dim: #a07840;
+  --color-brand-black: #080808;
+  --color-brand-deep: #0e0e0e;
+  --color-brand-surface: #141414;
+  --color-brand-card: #1a1a1a;
+}
+
+:root {
+  --gold: #C9A96E;
+  --gold-dim: #a07840;
+  --gold-glow: rgba(201, 169, 110, 0.18);
+  --gold-glow2: rgba(201, 169, 110, 0.08);
+  --glass-bg: rgba(20, 20, 20, 0.60);
+  --glass-border: rgba(201, 169, 110, 0.15);
+  --glass-border2: rgba(255, 255, 255, 0.06);
+}
+
+/* Base custom styles */
+body {
+  background: #080808;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #a07840;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #C9A96E;
+  color: #080808;
+}
+
+/* Grid & Glow backgrounds */
+.hero-grid {
+  background-image: 
+    linear-gradient(rgba(201, 169, 110, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 110, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+}
+
+.glow-gold {
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.15) 0%, transparent 70%);
+}
+
+/* Custom Nav Transition */
+nav {
+  transition: padding 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Glassmorphism styling helper */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(201, 169, 110, 0.2);
+}
+
+.glass-card-thin {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Perspective Tilt wrapper */
+.tilt-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+  transform-style: preserve-3d;
+}
+
+/* Nav links underline slider */
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C9A96E;
+  transition: width 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Smooth scrolling wrapper classes */
+html {
+  scroll-behavior: smooth;
+}

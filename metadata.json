@@ -1,0 +1,6 @@
+{
+  "name": "Bright Label MFG",
+  "description": "Premium apparel sourcing and manufacturing from Pakistan, built for US startups and emerging global brands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
