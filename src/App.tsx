@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +24,27 @@ export default function App() {
       }
     };
 
+    const updateCursor = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', updateCursor);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', updateCursor);
+    };
   }, []);
 
   return (
     <div className="relative min-h-screen bg-brand-black text-white selection:bg-gold selection:text-brand-black">
       
+      {/* Custom Cursor Dot */}
+      <div 
+        style={{ left: cursorPos.x, top: cursorPos.y }}
+        className="custom-cursor-dot hidden md:block"
+      />
+
       {/* Scroll Progress Bar */}
       <div
         style={{ width: `${scrollProgress}%` }}

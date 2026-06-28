@@ -45,7 +45,7 @@ export default function WhyUs() {
           >
             {/* Left side: BEFORE (Dark Red) */}
             <div className="absolute inset-y-0 left-0 right-[50%] bg-gradient-to-br from-[#1a0a0a] to-[#0e0808] flex flex-col justify-center p-6 md:p-8 lg:p-10 gap-6">
-              <div className="text-[0.6rem] md:text-xs tracking-[0.25em] text-red-500 font-bold uppercase mb-2">
+              <div className="text-xs md:text-sm tracking-[0.25em] text-red-500 font-bold uppercase mb-2">
                 Before
               </div>
               {[
@@ -54,7 +54,7 @@ export default function WhyUs() {
                 'Quality never consistent.',
                 'Brand idea stuck.'
               ].map((item, idx) => (
-                <div key={idx} className="text-xs md:text-sm text-neutral-400/50 line-through font-light leading-relaxed">
+                <div key={idx} className="text-xs md:text-[0.95rem] text-neutral-400/50 line-through font-light leading-relaxed">
                   {item}
                 </div>
               ))}
@@ -62,7 +62,7 @@ export default function WhyUs() {
 
             {/* Right side: WITH BRIGHT LABEL (Dark Green) */}
             <div className="absolute inset-y-0 right-0 left-[50%] bg-gradient-to-br from-[#0e100a] to-[#0a0d08] flex flex-col justify-center p-6 md:p-8 lg:p-10 gap-6 pl-8 md:pl-10">
-              <div className="text-[0.6rem] md:text-xs tracking-[0.25em] text-gold font-bold uppercase mb-2">
+              <div className="text-xs md:text-sm tracking-[0.25em] text-gold font-bold uppercase mb-2">
                 With Bright Label
               </div>
               {[
@@ -71,7 +71,7 @@ export default function WhyUs() {
                 'Strict QC on every piece.',
                 'Your brand live. Your name on it.'
               ].map((item, idx) => (
-                <div key={idx} className="text-xs md:text-sm text-neutral-200 font-normal leading-relaxed">
+                <div key={idx} className="text-xs md:text-[0.95rem] text-neutral-200 font-normal leading-relaxed">
                   {item}
                 </div>
               ))}
@@ -80,15 +80,12 @@ export default function WhyUs() {
             {/* Middle Divider Line with Mountain SVG */}
             <div className="absolute inset-y-0 left-[50%] w-[1px] bg-gold z-10">
               <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-11 h-11 rounded-full bg-brand-black border border-gold flex items-center justify-center z-20">
-                <svg viewBox="0 0 40 24" fill="none" className="w-6 text-gold" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1 22L10 6L16 16L22 8L39 22"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img 
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNTAwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cGF0aAogICAgZD0iTSAxODAgMjUwIEwgMjMwIDI1MCBDIDI3MCAyNTAsIDI5MCAyMjAsIDMxNSAyMTAgQyAzMzUgMjAyLCAzNDUgMjIwLCAzNjAgMjIwIEMgMzgwIDIyMCwgNDAwIDE3MCwgNDQwIDE2MCBDIDQ4MCAxNTAsIDQ5MCAyMDAsIDUxMCAyMDAgQyA1MzAgMjAwLCA1NTAgMTg1LCA1ODAgMjE1IEMgNjAwIDIzNSwgNjE1IDI1MCwgNjYwIDI1MCBMIDcxMCAyNTAiCiAgICBmaWxsPSJub25lIgogICAgc3Ryb2tlPSIjZjVmNWY1IgogICAgc3Ryb2tlLXdpZHRoPSI1IgogICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAvPgogIDx0ZXh0CiAgICB4PSI1MCUiCiAgICB5PSIzMzAiCiAgICBmb250LWZhbWlseT0iJ0Nvcm1vcmFudCBHYXJhbW9uZCcsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZiIKICAgIGZvbnQtc2l6ZT0iNDIiCiAgICBmb250LXdlaWdodD0iYm9sZCIKICAgIGZpbGw9IiNmNWY1ZjUiCiAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgbGV0dGVyLXNwYWNpbmc9IjEuNSIKICA+QnJpZ2h0IExhYmVsLjwvdGV4dD4KPC9zdmc+" 
+                  alt="" 
+                  style={{ height: '18px', width: 'auto', objectFit: 'contain' }}
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
           </div>
@@ -103,13 +100,13 @@ export default function WhyUs() {
             className="flex flex-col items-start"
           >
             {/* Section Eyebrow */}
-            <div className="text-[0.65rem] font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
+            <div className="text-[0.78rem] md:text-sm font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
               <span className="w-6 h-[1px] bg-gold block" />
               Why Bright Label
             </div>
 
             {/* Title */}
-            <h2 className="font-serif text-3xl md:text-5xl font-light leading-[1.1] text-white mb-10 select-none">
+            <h2 className="font-serif text-4xl md:text-[3.2rem] font-light leading-[1.1] text-white mb-10 select-none">
               We solve what<br />
               <span className="italic text-gold font-normal">stops you.</span>
             </h2>
@@ -125,10 +122,10 @@ export default function WhyUs() {
                   <div className="w-[2px] h-11 bg-gold flex-shrink-0 mt-1" />
                   
                   <div>
-                    <h3 className="text-[0.92rem] font-bold text-white tracking-[0.04em] mb-2 uppercase">
+                    <h3 className="text-base md:text-lg font-bold text-white tracking-[0.04em] mb-2 uppercase">
                       {point.title}
                     </h3>
-                    <p className="text-neutral-400 text-xs md:text-[0.82rem] leading-relaxed font-light">
+                    <p className="text-neutral-300 text-sm md:text-[0.95rem] leading-relaxed font-normal">
                       {point.description}
                     </p>
                   </div>

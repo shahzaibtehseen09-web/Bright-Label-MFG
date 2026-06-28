@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", ui-serif, serif;
   
   --color-gold: #C9A96E;
@@ -27,12 +27,23 @@
 body {
   background: #080808;
   color: #f5f5f5;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar */
+/* Global grain texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.4;
+}
+
+/* Custom Scrollbar - Solid Gold */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -40,13 +51,34 @@ body {
   background: #080808;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a07840;
+  background: #C9A96E;
   border-radius: 4px;
 }
 
 ::selection {
   background: #C9A96E;
   color: #080808;
+}
+
+/* Section top gold gradient transition */
+section {
+  position: relative;
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(201, 169, 110, 0.03), transparent);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Headings & Text protection shadow */
+h1, h2, h3, .section-title, .section-eyebrow, .service-name, .cat-name, p {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);
 }
 
 /* Grid & Glow backgrounds */
@@ -106,7 +138,86 @@ nav {
   width: 100%;
 }
 
+/* Active Nav Link class styling */
+.nav-link-active {
+  color: #C9A96E !important;
+}
+.nav-link-active::after {
+  width: 100% !important;
+}
+
+/* Custom Cursor */
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #C9A96E;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9996;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Shimmer animation for Button */
+@keyframes shimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-button {
+  background: linear-gradient(90deg, #C9A96E 0%, #ffdf9e 25%, #C9A96E 50%, #C9A96E 100%);
+  background-size: 200% 100%;
+  transition: all 0.3s ease;
+}
+.shimmer-button:hover {
+  animation: shimmerSweep 1.5s infinite linear;
+}
+
+/* Floating particle keyframes */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-80px) translateX(0px) scale(1);
+    opacity: 0.1;
+  }
+}
+
+/* Gold sweeps across card top */
+@keyframes shimmerSweeper {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.gold-shimmer-sweep {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+  width: 100%;
+  left: -100%;
+  transition: left 0.4s ease;
+}
+.group:hover .gold-shimmer-sweep {
+  animation: shimmerSweeper 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Smooth scrolling wrapper classes */
 html {
   scroll-behavior: smooth;
 }
+

@@ -71,9 +71,9 @@ export default function Categories() {
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
-                transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, border-color 0.4s, box-shadow 0.4s`,
+                transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, border-color 0.4s, box-shadow 0.4s, transform 0.4s`,
               }}
-              className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col select-none"
+              className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col select-none min-h-[380px] hover:-translate-y-2.5 hover:scale-[1.02] hover:border-gold/50 hover:shadow-[0_20px_40px_rgba(201,169,110,0.15)] border border-white/5 transition-all duration-500"
             >
               {/* Background image */}
               <img
@@ -82,27 +82,36 @@ export default function Categories() {
                 className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              {/* Dark overlay slightly lighter */}
+              {/* Dark overlay (minimum 0.85) */}
               <div 
-                style={{ backgroundColor: 'rgba(8, 8, 8, 0.78)' }}
+                style={{ backgroundColor: 'rgba(8, 8, 8, 0.86)' }}
                 className="absolute inset-0 z-1" 
               />
 
-              {/* Giant Faded Number on Bottom-Right */}
-              <div className="absolute -bottom-2 right-4 font-serif text-[7rem] font-bold text-gold/[0.05] group-hover:text-gold/[0.1] transition-colors duration-300 leading-none select-none pointer-events-none z-[2]">
+              {/* Subtle gold overlay gradient revealed on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gold/[0.12] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-1 pointer-events-none" />
+
+              {/* Gold Top line sweep highlight on hover */}
+              <div className="gold-shimmer-sweep z-[3]" />
+
+              {/* Giant Faded Number on Bottom-Right (increased opacity to 0.35/0.45) */}
+              <div className="absolute -bottom-2 right-4 font-serif text-[7.5rem] font-extrabold text-gold/35 group-hover:text-gold/45 transition-all duration-300 leading-none select-none pointer-events-none z-[2]">
                 {cat.num}
               </div>
 
-              {/* Category Name */}
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-white mb-6 relative z-[2]">
+              {/* Category Name (Poppins 700 + increased size) */}
+              <h3 className="font-sans text-2xl md:text-3xl font-bold text-white mb-6 relative z-[2] tracking-wide">
                 {cat.name}
               </h3>
 
-              {/* Items List */}
+              {/* Items List (increased size, thin gold left border, tiny bullet points) */}
               <ul className="flex flex-col gap-3 relative z-[2]">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="text-[0.82rem] text-neutral-350 font-medium flex items-center gap-3.5">
-                    <span className="w-4 h-[1px] bg-gold flex-shrink-0" />
+                  <li 
+                    key={itemIdx} 
+                    className="text-[0.92rem] text-neutral-300 font-normal flex items-center gap-3 pl-3 border-l border-gold/30 hover:border-gold hover:text-white transition-all duration-300"
+                  >
+                    <span className="w-[5px] h-[5px] bg-gold rounded-full flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity" />
                     {item}
                   </li>
                 ))}

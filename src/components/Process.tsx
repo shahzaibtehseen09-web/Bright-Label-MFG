@@ -58,7 +58,7 @@ export default function Process() {
       id="process"
       ref={containerRef}
       style={{
-        backgroundImage: 'linear-gradient(rgba(14, 14, 14, 0.88), rgba(14, 14, 14, 0.88)), url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=1800&q=80")',
+        backgroundImage: 'linear-gradient(rgba(14, 14, 14, 0.92), rgba(14, 14, 14, 0.94)), url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=1800&q=80")',
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -78,13 +78,13 @@ export default function Process() {
           className="flex flex-col items-start mb-16"
         >
           {/* Eyebrow */}
-          <div className="text-[0.65rem] font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
+          <div className="text-[0.78rem] md:text-sm font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
             <span className="w-6 h-[1px] bg-gold block" />
             The Process
           </div>
 
           {/* Title */}
-          <h2 className="font-serif text-3xl md:text-5xl font-light leading-[1.1] text-white select-none">
+          <h2 className="font-serif text-4xl md:text-[3.2rem] font-light leading-[1.1] text-white select-none">
             From idea to<br />
             <span className="italic text-gold font-normal">finished garment.</span>
           </h2>
@@ -105,6 +105,18 @@ export default function Process() {
               className="absolute top-0 left-0 w-full bg-gradient-to-b from-gold to-[#a07840] origin-top"
             />
           </div>
+
+          {/* Gold diamond shapes in between step dots on the timeline */}
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              style={{
+                top: `${i * 20}%`,
+                transform: 'translate(-50%, -50%) rotate(45deg)',
+              }}
+              className="absolute left-[20px] w-1.5 h-1.5 bg-gold border border-gold-dim z-20 pointer-events-none"
+            />
+          ))}
 
           {/* List of steps */}
           <div className="flex flex-col gap-12">
@@ -134,17 +146,17 @@ export default function Process() {
                     />
                   </div>
 
-                  {/* Left big faded step number */}
-                  <div className="font-serif text-4xl md:text-[3.5rem] font-bold text-gold/[0.12] group-hover:text-gold/[0.25] transition-colors duration-400 leading-none select-none w-20 flex-shrink-0">
+                  {/* Left big faded step number (Poppins 800, 0.15 to 0.35 opacity) */}
+                  <div className="font-sans text-4xl md:text-[3.5rem] font-extrabold text-gold/15 group-hover:text-gold/35 transition-all duration-400 leading-none select-none w-20 flex-shrink-0">
                     {step.num}
                   </div>
 
-                  {/* Right side content */}
-                  <div className="flex flex-col">
-                    <h3 className="text-white text-base font-bold tracking-[0.04em] mb-2 uppercase group-hover:text-gold transition-colors duration-300">
+                  {/* Right side content (subtle left gold border on hover) */}
+                  <div className="flex flex-col pl-4 border-l-2 border-transparent group-hover:border-gold/50 transition-all duration-300">
+                    <h3 className="text-white text-lg font-bold tracking-[0.04em] mb-2 uppercase group-hover:text-gold transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-neutral-400 text-[0.88rem] leading-relaxed font-light select-none">
+                    <p className="text-neutral-300 text-[0.98rem] leading-relaxed font-normal select-none">
                       {step.description}
                     </p>
                   </div>

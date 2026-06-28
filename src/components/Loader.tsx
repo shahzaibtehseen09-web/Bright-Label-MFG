@@ -32,6 +32,8 @@ export default function Loader({ onComplete }: LoaderProps) {
 
   if (!isVisible) return null;
 
+  const logoBase64 = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNTAwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cGF0aAogICAgZD0iTSAxODAgMjUwIEwgMjMwIDI1MCBDIDI3MCAyNTAsIDI5MCAyMjAsIDMxNSAyMTAgQyAzMzUgMjAyLCAzNDUgMjIwLCAzNjAgMjIwIEMgMzgwIDIyMCwgNDAwIDE3MCwgNDQwIDE2MCBDIDQ4MCAxNTAsIDQ5MCAyMDAsIDUxMCAyMDAgQyA1MzAgMjAwLCA1NTAgMTg1LCA1ODAgMjE1IEMgNjAwIDIzNSwgNjE1IDI1MCwgNjYwIDI1MCBMIDcxMCAyNTAiCiAgICBmaWxsPSJub25lIgogICAgc3Ryb2tlPSIjZjVmNWY1IgogICAgc3Ryb2tlLXdpZHRoPSI1IgogICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAvPgogIDx0ZXh0CiAgICB4PSI1MCUiCiAgICB5PSIzMzAiCiAgICBmb250LWZhbWlseT0iJ0Nvcm1vcmFudCBHYXJhbW9uZCcsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZiIKICAgIGZvbnQtc2l6ZT0iNDIiCiAgICBmb250LXdlaWdodD0iYm9sZCIKICAgIGZpbGw9IiNmNWY1ZjUiCiAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgbGV0dGVyLXNwYWNpbmc9IjEuNSIKICA+QnJpZ2h0IExhYmVsLjwvdGV4dD4KPC9zdmc+";
+
   return (
     <div
       style={{
@@ -42,9 +44,12 @@ export default function Loader({ onComplete }: LoaderProps) {
       }`}
       id="loader"
     >
-      <div className="font-serif text-3xl md:text-5xl font-light tracking-[0.25em] text-white uppercase select-none">
-        Bright <span className="text-gold font-normal">Label</span> MFG
-      </div>
+      <img 
+        src={logoBase64} 
+        alt="Bright Label MFG" 
+        style={{ height: '80px', width: 'auto', objectFit: 'contain', marginBottom: '16px' }}
+        referrerPolicy="no-referrer"
+      />
       
       <div className="w-[200px] h-[1px] bg-white/10 relative overflow-hidden">
         <div

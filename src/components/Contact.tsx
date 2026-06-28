@@ -75,19 +75,19 @@ export default function Contact() {
             className="flex flex-col items-start"
           >
             {/* Section Eyebrow */}
-            <div className="text-[0.65rem] font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
+            <div className="text-[0.78rem] md:text-sm font-bold tracking-[0.3em] text-gold uppercase mb-5 flex items-center gap-3">
               <span className="w-6 h-[1px] bg-gold block" />
               Get in Touch
             </div>
 
             {/* Title */}
-            <h2 className="font-serif text-3xl md:text-5xl font-light leading-[1.1] text-white mb-6 select-none">
+            <h2 className="font-serif text-4xl md:text-[3.2rem] font-light leading-[1.1] text-white mb-6 select-none">
               Ready to build<br />
               <span className="italic text-gold font-normal">your brand?</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-neutral-400 font-light text-sm md:text-base leading-relaxed mb-12 select-none">
+            <p className="text-neutral-300 font-normal text-base md:text-lg leading-relaxed mb-12 select-none">
               Tell us about your project. We'll handle the rest — confidentially, professionally, and on time.
             </p>
 
@@ -102,7 +102,7 @@ export default function Contact() {
                   key={idx}
                   className="py-6 border-b border-white/6 first:pt-0 last:border-none last:pb-0 group"
                 >
-                  <div className="text-[0.62rem] font-bold tracking-[0.25em] text-gold uppercase mb-1.5 opacity-90">
+                  <div className="text-[0.75rem] md:text-xs font-bold tracking-[0.25em] text-gold uppercase mb-1.5 opacity-90">
                     {item.label}
                   </div>
                   {item.href ? (
@@ -110,12 +110,12 @@ export default function Contact() {
                       href={item.href}
                       target={item.href.startsWith('http') ? '_blank' : '_self'}
                       rel="noopener noreferrer"
-                      className="text-sm md:text-base text-white hover:text-gold transition-colors font-light"
+                      className="text-base md:text-lg text-white hover:text-gold transition-colors font-normal"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <div className="text-sm md:text-base text-white font-light">
+                    <div className="text-base md:text-lg text-white font-normal">
                       {item.value}
                     </div>
                   )}
@@ -138,7 +138,7 @@ export default function Contact() {
               {/* Row 1: Full Name + Brand Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                  <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                     Full Name
                   </label>
                   <input
@@ -147,11 +147,11 @@ export default function Contact() {
                     placeholder="John Smith"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
+                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                  <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                     Brand Name
                   </label>
                   <input
@@ -160,7 +160,7 @@ export default function Contact() {
                     placeholder="Your Brand Co."
                     value={formData.brand}
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
+                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
                   />
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function Contact() {
               {/* Row 2: Email + Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                  <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                     Email
                   </label>
                   <input
@@ -177,11 +177,11 @@ export default function Contact() {
                     placeholder="john@brand.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
+                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                  <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                     Phone
                   </label>
                   <input
@@ -189,14 +189,14 @@ export default function Contact() {
                     placeholder="+1 234 567 8900"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
+                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)]"
                   />
                 </div>
               </div>
 
               {/* Dropdown Full Width */}
               <div className="flex flex-col gap-2 relative">
-                <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                   What Do You Need?
                 </label>
                 <div className="relative">
@@ -204,7 +204,7 @@ export default function Contact() {
                     required
                     value={formData.need}
                     onChange={(e) => setFormData({ ...formData, need: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)] cursor-pointer appearance-none"
+                    className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)] cursor-pointer appearance-none"
                   >
                     <option value="" className="bg-brand-card text-neutral-400">Select a service</option>
                     <option value="Manufacturing Solutions" className="bg-brand-card text-white">Manufacturing Solutions</option>
@@ -223,7 +223,7 @@ export default function Contact() {
 
               {/* Textarea Full Width */}
               <div className="flex flex-col gap-2">
-                <label className="text-[0.65rem] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+                <label className="text-[0.75rem] font-bold tracking-[0.2em] text-neutral-300 uppercase">
                   Tell Us About Your Project
                 </label>
                 <textarea
@@ -232,7 +232,7 @@ export default function Contact() {
                   placeholder="Describe your collection, quantities, timeline, and any specific requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-light text-sm outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)] resize-y min-h-[120px]"
+                  className="w-full bg-white/[0.04] border border-white/8 rounded-sm px-4.5 py-3.5 text-white font-normal text-base outline-none transition-all duration-350 focus:border-gold focus:shadow-[0_0_12px_rgba(201,169,110,0.1)] resize-y min-h-[120px]"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export default function Contact() {
                   color: isSubmitted ? '#ffffff' : '#080808',
                   transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
-                className="w-full py-4.5 font-extrabold text-[0.78rem] tracking-[0.2em] uppercase rounded-sm hover:translate-y-[-2px] hover:shadow-[0_8px_30px_rgba(201,169,110,0.35)] select-none cursor-pointer mt-2"
+                className="w-full py-4.5 font-extrabold text-[0.85rem] tracking-[0.2em] uppercase rounded-sm hover:translate-y-[-2px] hover:shadow-[0_8px_30px_rgba(201,169,110,0.35)] select-none cursor-pointer mt-2"
               >
                 {isSubmitted ? 'Message Sent ✓' : 'Send Your Request'}
               </button>

@@ -70,9 +70,9 @@ export default function Services() {
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
-                transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, border-color 0.4s, box-shadow 0.4s`,
+                transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 0.08}s, border-color 0.4s, box-shadow 0.4s, transform 0.4s`,
               }}
-              className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col items-start select-none"
+              className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col items-start select-none min-h-[450px] border border-white/5 hover:border-gold/50 hover:shadow-[0_20px_40px_rgba(201,169,110,0.15)] hover:-translate-y-2.5 transition-all duration-500"
             >
               {/* Background image */}
               <img
@@ -81,30 +81,36 @@ export default function Services() {
                 className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              {/* Dark overlay */}
+              {/* Dark overlay (minimum 0.88 opacity) */}
               <div 
-                style={{ backgroundColor: 'rgba(8, 8, 8, 0.82)' }}
+                style={{ backgroundColor: 'rgba(8, 8, 8, 0.88)' }}
                 className="absolute inset-0 z-1" 
               />
 
-              {/* Gold Top line highlight on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2]" />
+              {/* Gold Top line sweep highlight on hover */}
+              <div className="gold-shimmer-sweep z-[3]" />
               
               {/* Background large number */}
-              <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.1] group-hover:text-gold/[0.18] transition-colors duration-300 select-none z-[2]">
+              <div 
+                style={{ 
+                  color: 'rgba(201, 169, 110, 0.55)',
+                  textShadow: '0 0 30px rgba(201, 169, 110, 0.4)'
+                }}
+                className="absolute top-4 right-6 font-serif text-[4.8rem] font-extrabold transition-colors duration-300 select-none z-[2]"
+              >
                 {service.num}
               </div>
 
               {/* Gold line that expands on hover */}
               <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300 relative z-[2]" />
 
-              {/* Service name */}
-              <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
+              {/* Service name (Poppins 700 + increased size) */}
+              <h3 className="text-white text-base md:text-lg font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
                 {service.title}
               </h3>
 
-              {/* Description */}
-              <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light relative z-[2]">
+              {/* Description (Poppins 400 + increased size) */}
+              <p className="text-neutral-300 text-[0.95rem] leading-relaxed font-normal relative z-[2]">
                 {service.description}
               </p>
             </TiltCard>
@@ -115,9 +121,9 @@ export default function Services() {
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
-              transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, border-color 0.4s, box-shadow 0.4s`,
+              transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.4s`,
             }}
-            className="group p-10 rounded-2xl relative overflow-hidden flex flex-col items-start border-gold/20 select-none"
+            className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col items-start border border-gold/20 hover:border-gold/50 hover:shadow-[0_20px_40px_rgba(201,169,110,0.15)] hover:-translate-y-2.5 transition-all duration-500 select-none min-h-[450px]"
           >
             {/* Background image */}
             <img
@@ -128,12 +134,21 @@ export default function Services() {
             />
             {/* Dark overlay */}
             <div 
-              style={{ backgroundColor: 'rgba(8, 8, 8, 0.82)' }}
+              style={{ backgroundColor: 'rgba(8, 8, 8, 0.88)' }}
               className="absolute inset-0 z-1" 
             />
 
+            {/* Gold Top line sweep highlight on hover */}
+            <div className="gold-shimmer-sweep z-[3]" />
+
             {/* Background large arrow */}
-            <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.25] select-none z-[2]">
+            <div 
+              style={{ 
+                color: 'rgba(201, 169, 110, 0.55)',
+                textShadow: '0 0 30px rgba(201, 169, 110, 0.4)'
+              }}
+              className="absolute top-4 right-6 font-serif text-[4.8rem] font-extrabold select-none z-[2]"
+            >
               →
             </div>
 
@@ -141,19 +156,19 @@ export default function Services() {
             <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300 relative z-[2]" />
 
             {/* Title */}
-            <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
+            <h3 className="text-white text-base md:text-lg font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
               Ready to Start?
             </h3>
 
             {/* Description */}
-            <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light mb-6 relative z-[2]">
+            <p className="text-neutral-300 text-[0.95rem] leading-relaxed font-normal mb-6 relative z-[2]">
               Tell us about your project and we'll put together a plan built around your brand's exact needs.
             </p>
 
             {/* Button */}
             <a
               href="#contact"
-              className="mt-auto inline-block px-7 py-3 bg-gold text-brand-black font-extrabold text-[0.7rem] tracking-[0.15em] uppercase rounded-sm hover:bg-[#d4b07a] transition-all relative z-[2]"
+              className="mt-auto inline-block px-7 py-3 text-brand-black font-extrabold text-[0.8rem] tracking-[0.15em] uppercase rounded-sm shimmer-button hover:text-brand-black hover:shadow-[0_8px_30px_rgba(201,169,110,0.3)] transition-all relative z-[2]"
             >
               Get in Touch
             </a>
