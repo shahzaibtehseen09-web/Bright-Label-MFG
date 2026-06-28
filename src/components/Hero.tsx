@@ -24,6 +24,11 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
+      style={{
+        backgroundImage: 'linear-gradient(rgba(8,8,8,0.75), rgba(8,8,8,0.92)), url("https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&q=80")',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}
       className="relative min-height-screen min-h-[100vh] w-full bg-brand-black flex items-center overflow-hidden px-6 md:px-16 lg:px-24 py-32"
     >
       {/* Background Gradients & Grid */}
@@ -60,8 +65,9 @@ export default function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm md:text-base font-light text-neutral-400 leading-relaxed max-w-[540px] mb-10 select-none">
-            Premium apparel sourcing and manufacturing from Pakistan — built for US startups and emerging global brands who demand quality without compromise.
+          <p className="text-sm md:text-base font-light text-neutral-400 leading-relaxed max-w-[640px] mb-10 select-none">
+            A professional team that brings every design to life through precise Tech Pack interpretation and expert craftsmanship — transforming concepts into high-quality, production-ready garments.<br /><br />
+            Based in Karachi, Pakistan — one of the world's leading apparel manufacturing hubs — we proudly serve fashion brands across Asia, North America, and beyond, delivering reliable manufacturing solutions with global standards.
           </p>
 
           {/* Buttons */}

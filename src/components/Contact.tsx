@@ -52,6 +52,12 @@ export default function Contact() {
     <section
       id="contact"
       ref={containerRef}
+      style={{
+        backgroundImage: 'linear-gradient(rgba(8, 8, 8, 0.90), rgba(8, 8, 8, 0.90)), url("https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&q=80")',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
       className="relative bg-brand-black overflow-hidden"
     >
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-36">

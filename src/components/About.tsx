@@ -28,6 +28,13 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
+      style={{
+        backgroundImage: 'linear-gradient(rgba(14,14,14,0.82), rgba(14,14,14,0.92)), url("https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1800&q=80")',
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+      }}
       className="relative bg-brand-deep overflow-hidden"
     >
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-36">

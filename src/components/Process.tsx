@@ -57,6 +57,13 @@ export default function Process() {
     <section
       id="process"
       ref={containerRef}
+      style={{
+        backgroundImage: 'linear-gradient(rgba(14, 14, 14, 0.88), rgba(14, 14, 14, 0.88)), url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=1800&q=80")',
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+      }}
       className="relative bg-brand-deep overflow-hidden"
     >
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-36">

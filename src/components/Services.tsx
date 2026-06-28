@@ -2,6 +2,14 @@ import { useEffect, useState, useRef } from 'react';
 import TiltCard from './TiltCard';
 import { SERVICES_LIST } from '../data';
 
+const SERVICE_IMAGES: Record<string, string> = {
+  mfg: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80",
+  sourcing: "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800&q=80",
+  dev: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+  qa: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80",
+  delivery: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
+};
+
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,24 +74,37 @@ export default function Services() {
               }}
               className="group glass-card-thin p-10 rounded-2xl relative overflow-hidden flex flex-col items-start select-none"
             >
+              {/* Background image */}
+              <img
+                src={SERVICE_IMAGES[service.id]}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
+              {/* Dark overlay */}
+              <div 
+                style={{ backgroundColor: 'rgba(8, 8, 8, 0.82)' }}
+                className="absolute inset-0 z-1" 
+              />
+
               {/* Gold Top line highlight on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2]" />
               
               {/* Background large number */}
-              <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.1] group-hover:text-gold/[0.18] transition-colors duration-300 select-none">
+              <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.1] group-hover:text-gold/[0.18] transition-colors duration-300 select-none z-[2]">
                 {service.num}
               </div>
 
               {/* Gold line that expands on hover */}
-              <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300" />
+              <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300 relative z-[2]" />
 
               {/* Service name */}
-              <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4">
+              <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light">
+              <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light relative z-[2]">
                 {service.description}
               </p>
             </TiltCard>
@@ -95,32 +116,44 @@ export default function Services() {
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
               transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, border-color 0.4s, box-shadow 0.4s`,
-              background: 'linear-gradient(135deg, rgba(201, 169, 110, 0.12), rgba(201, 169, 110, 0.04))',
             }}
             className="group p-10 rounded-2xl relative overflow-hidden flex flex-col items-start border-gold/20 select-none"
           >
+            {/* Background image */}
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+              alt="Ready to Start?"
+              className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
+            {/* Dark overlay */}
+            <div 
+              style={{ backgroundColor: 'rgba(8, 8, 8, 0.82)' }}
+              className="absolute inset-0 z-1" 
+            />
+
             {/* Background large arrow */}
-            <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.25] select-none">
+            <div className="absolute top-4 right-6 font-serif text-[4rem] font-bold text-gold/[0.25] select-none z-[2]">
               →
             </div>
 
             {/* Gold line that expands on hover */}
-            <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300" />
+            <div className="w-8 h-[1px] bg-gold mb-6 group-hover:w-[60px] transition-all duration-300 relative z-[2]" />
 
             {/* Title */}
-            <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4">
+            <h3 className="text-white text-sm font-bold tracking-[0.05em] uppercase mb-4 relative z-[2]">
               Ready to Start?
             </h3>
 
             {/* Description */}
-            <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light mb-6">
+            <p className="text-neutral-400 text-[0.85rem] leading-relaxed font-light mb-6 relative z-[2]">
               Tell us about your project and we'll put together a plan built around your brand's exact needs.
             </p>
 
             {/* Button */}
             <a
               href="#contact"
-              className="mt-auto inline-block px-7 py-3 bg-gold text-brand-black font-extrabold text-[0.7rem] tracking-[0.15em] uppercase rounded-sm hover:bg-[#d4b07a] transition-all"
+              className="mt-auto inline-block px-7 py-3 bg-gold text-brand-black font-extrabold text-[0.7rem] tracking-[0.15em] uppercase rounded-sm hover:bg-[#d4b07a] transition-all relative z-[2]"
             >
               Get in Touch
             </a>
